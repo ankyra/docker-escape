@@ -1,5 +1,5 @@
 name: docker-escape-client
-version: $escape.version.track_patch_version()
+version: $escape.version
 depends:
 - escape-client-latest as escape
 extends:
