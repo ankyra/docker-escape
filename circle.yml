@@ -12,6 +12,7 @@ dependencies:
 compile:
   override:
   - escape release -v docker_repository=ankyra/ -v docker_username=${DOCKER_USERNAME} -v docker_password=${DOCKER_PASSWORD} -v docker_email=${DOCKER_EMAIL} --skip-destroy
+  - curl -X POST https://circleci.com/api/v1.1/project/github/ankyra/escape-docs/tree/master?circle_token=${CIRCLE_ESCAPE_DOCS_TOKEN}
 
 test:
   override:
