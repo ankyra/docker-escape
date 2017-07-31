@@ -1,0 +1,12 @@
+name: docker-escape-client
+version: $escape.version.track_patch_version()
+depends:
+- escape-client-latest as escape
+extends:
+- extension-docker-latest
+
+inputs:
+- id: docker_image
+  default: "escape"
+includes:
+- Dockerfile
