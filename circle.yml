@@ -11,7 +11,7 @@ dependencies:
 
 compile:
   override:
-  - escape release -v docker_repository=ankyra/
+  - escape release -v docker_repository=ankyra/ -v docker_username=${DOCKER_USERNAME} -v docker_password=${DOCKER_PASSWORD}
 
 test:
   override:
