@@ -1,4 +1,6 @@
 name: docker-escape-client
+description: The Docker image for Escape, published at https://hub.docker.com/r/ankyra/escape/
+logo: logo.png
 version: $escape.version
 depends:
 - escape-client-latest as escape
@@ -8,5 +10,6 @@ extends:
 inputs:
 - id: docker_image
   default: "escape"
+
 includes:
 - Dockerfile
