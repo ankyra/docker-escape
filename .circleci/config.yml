@@ -1,0 +1,25 @@
+version: 2
+
+jobs:
+  build:
+    docker:
+    - image: ankyra/escape:latest
+
+    steps:
+    - checkout
+    - setup_remote_docker
+    - run:
+        name: Install Docker client
+        command: |
+          set -x
+          VER="17.03.0-ce"
+          curl -L -o /tmp/docker-$VER.tgz https://get.docker.com/builds/Linux/x86_64/docker-$VER.tgz
+          tar -xz -C /tmp -f /tmp/docker-$VER.tgz
+          mv /tmp/docker/* /usr/bin
+
+    - run: 
+        name: Build Escape release
+        command: escape release -v docker_repository=ankyra/ -v docker_username=${DOCKER_USERNAME} -v docker_password=${DOCKER_PASSWORD} -v docker_email=${DOCKER_EMAIL} --skip-destroy --skip-deploy
+    - run:
+        name: Trigger extension-docker-kubespec build
+        command: curl -X POST https://circleci.com/api/v1.1/project/github/ankyra/escape-docs/tree/master?circle_token=${CIRCLE_ESCAPE_DOCS_TOKEN}
