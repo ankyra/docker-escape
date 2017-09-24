@@ -1,6 +1,6 @@
 name: docker-escape-client-nodejs
 logo: logo.png
-version: $escape.version
+version: $escape.version.track_patch_version()
 description: |
     The Docker image for Escape with nodejs and npm installed.
     Published at https://hub.docker.com/r/ankyra/escape-nodejs/
