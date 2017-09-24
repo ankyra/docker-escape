@@ -14,10 +14,6 @@ inputs:
 - id: docker_repository
   default: "ankyra/"
   visible: false
-- id: docker_import_image
-  default: true
-  visible: false
 
 includes:
 - Dockerfile
-- imported_image
