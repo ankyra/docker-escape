@@ -18,8 +18,15 @@ jobs:
           mv /tmp/docker/* /usr/bin
 
     - run: 
-        name: Build Escape release
-        command: escape release -v docker_repository=ankyra/ -v docker_username=${DOCKER_USERNAME} -v docker_password=${DOCKER_PASSWORD} -v docker_email=${DOCKER_EMAIL} --skip-destroy --skip-deploy
+        name: Build Escape release for docker-escape-client
+        command: | 
+          escape release -v docker_repository=ankyra/ -v docker_username=${DOCKER_USERNAME} -v docker_password=${DOCKER_PASSWORD} -v docker_email=${DOCKER_EMAIL} --skip-destroy --skip-deploy
+
+    - run: 
+        name: Build Escape release for docker-escape-client-nodejs
+        command: | 
+          escape release -i escape-nodejs.yml -v docker_repository=ankyra/ -v docker_username=${DOCKER_USERNAME} -v docker_password=${DOCKER_PASSWORD} -v docker_email=${DOCKER_EMAIL} --skip-destroy --skip-deploy
+
     - run:
         name: Trigger extension-docker-kubespec build
         command: curl -X POST https://circleci.com/api/v1.1/project/github/ankyra/escape-docs/tree/master?circle_token=${CIRCLE_ESCAPE_DOCS_TOKEN}
