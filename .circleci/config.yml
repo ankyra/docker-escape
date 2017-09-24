@@ -20,7 +20,7 @@ jobs:
     - run: 
         name: Build Escape release for docker-escape-client
         command: | 
-          escape release -v docker_repository=ankyra/ -v docker_username=${DOCKER_USERNAME} -v docker_password=${DOCKER_PASSWORD} -v docker_email=${DOCKER_EMAIL} --skip-destroy --skip-deploy
+          escape release -v docker_repository=ankyra/ -v docker_username=${DOCKER_USERNAME} -v docker_password=${DOCKER_PASSWORD} -v docker_email=${DOCKER_EMAIL} --skip-destroy --skip-deploy -v docker_import_image=1
 
     - run: 
         name: Build Escape release for docker-escape-client-nodejs
