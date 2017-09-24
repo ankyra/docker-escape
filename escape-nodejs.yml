@@ -21,6 +21,8 @@ inputs:
 
 templates:
 - file: Dockerfile-nodejs.tpl
+  mapping:
+    from_version: $escape.version
 
 includes:
 - Dockerfile

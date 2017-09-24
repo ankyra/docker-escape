@@ -1,4 +1,4 @@
-FROM ankyra/escape:{{{version}}}
+FROM ankyra/escape:{{{from_version}}}
 
 RUN apt-get update && \
     apt-get install -y npm && \
