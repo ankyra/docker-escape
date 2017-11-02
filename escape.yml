@@ -1,9 +1,9 @@
-name: docker-escape-client
+name: docker-escape
 description: The Docker image for Escape, published at https://hub.docker.com/r/ankyra/escape/
 logo: logo.png
 version: $escape.version.track_patch_version()
 depends:
-- escape-client-latest as escape
+- escape-latest as escape
 extends:
 - extension-docker-latest
 
