@@ -20,9 +20,6 @@ jobs:
     - run: 
         name: Build Escape release 
         command: | 
-          escape release -v docker_username=${DOCKER_USERNAME} -v docker_password=${DOCKER_PASSWORD} -v docker_email=${DOCKER_EMAIL} --skip-destroy --skip-deploy 
-
-
-    - run:
-        name: Trigger escape-docs build
-        command: curl -X POST https://circleci.com/api/v1.1/project/github/ankyra/escape-docs/tree/master?circle_token=${CIRCLE_ESCAPE_DOCS_TOKEN}
+          echo $GCLOUD_SERVICE_KEY | base64 --decode -i > key.json
+          escape deploy gcp-provider-latest -d 'gcp' -v credentials=@key.json
+          escape release --skip-destroy --skip-deploy -v docker_repository="eu.gcr.io/ankyra-ci/" -v 'docker_cmd=["gcloud", "docker", "--"]'
