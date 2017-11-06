@@ -16,6 +16,6 @@ RUN apt-get update && \
     gcloud config set component_manager/disable_update_check true && \
     gcloud config set metrics/environment github_docker_image
 
-COPY deps/_/escape/escape /usr/bin/escape
+COPY deps/heist/escape-integration-tests/deps/_/escape/escape /usr/bin/escape
 
 ENTRYPOINT ["/usr/bin/escape"]
