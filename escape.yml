@@ -7,6 +7,12 @@ depends:
 extends:
 - extension-docker-latest
 
+metadata:
+  core_version: $escape.metadata.core_version
+  escape_version: $escape.metadata.escape_version
+  release_metadata_api_version: $escape.metadata.release_metadata_api_version
+  tested_with_inventory_version: $escape.metadata.inventory_version
+ 
 inputs:
 - id: docker_image
   default: "escape"
