@@ -18,8 +18,7 @@ inputs:
   default: "escape"
   visible: false
 - id: docker_repository
-  default: "ankyra/"
-  visible: false
+  default: ""
 
 includes:
 - Dockerfile
