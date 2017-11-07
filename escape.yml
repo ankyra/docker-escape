@@ -1,7 +1,7 @@
 name: docker-escape
 description: The Docker image for Escape, published at https://hub.docker.com/r/ankyra/escape/
 logo: logo.png
-version: $escape.metadata.escape_version.track_patch_version()
+version: $escape.metadata.escape_version
 depends:
 - heist/escape-integration-tests-latest as escape
 extends:
