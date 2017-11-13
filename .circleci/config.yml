@@ -21,5 +21,5 @@ jobs:
         name: Build Escape release 
         command: | 
           echo $GCLOUD_SERVICE_KEY | base64 --decode -i > key.json
-          escape deploy gcp-provider-latest -d 'gcp' -v credentials=@key.json
-          escape release --skip-destroy --skip-deploy -v docker_repository="eu.gcr.io/ankyra-ci/" -v 'docker_cmd=["gcloud", "docker", "--"]'
+          escape run deploy gcp-provider-latest -d 'gcp' -v credentials=@key.json
+          escape run release --skip-destroy --skip-deploy -v docker_repository="eu.gcr.io/ankyra-ci/" -v 'docker_cmd=["gcloud", "docker", "--"]'
