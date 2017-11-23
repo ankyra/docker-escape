@@ -6,4 +6,5 @@ if [ "$INPUT_docker_repository" = "" ] ; then
   IMAGE="$INPUT_docker_image:latest"
 fi
 
-docker run --rm -t "$IMAGE" -- escape version
+echo "Running 'escape version' on image to validate binary is correctly installed"
+docker run --rm -t "$IMAGE" version
