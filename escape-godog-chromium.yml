@@ -1,7 +1,9 @@
-name: docker-escape
-description: The Docker image for Escape, published at https://hub.docker.com/r/ankyra/escape/
-version: $escape.metadata.escape_version
+name: docker-escape-godog-chromium
 logo: logo.png
+version: $escape.metadata.escape_version
+description: |
+    The Docker image for Escape with the JDK, godog and the chromium-browser
+    installed.  Published at https://hub.docker.com/r/ankyra/escape-godog-chromium/
 
 depends:
 - heist/escape-integration-tests-latest as escape
@@ -14,14 +16,14 @@ metadata:
   escape_version: $escape.metadata.escape_version
   release_metadata_api_version: $escape.metadata.release_metadata_api_version
   tested_with_inventory_version: $escape.metadata.inventory_version
- 
+
 inputs:
 - id: docker_image
-  default: "escape"
+  default: "escape-godog-chromium"
   visible: false
+- id: docker_file
+  default: Dockerfile-godog-chromium
 
 includes:
-- Dockerfile
-
-
-test: test.sh
+- Dockerfile-godog-chromium
+- imported_image

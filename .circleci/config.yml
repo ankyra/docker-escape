@@ -22,3 +22,4 @@ jobs:
         command: | 
           escape run release --skip-destroy --skip-deploy --skip-if-exists
           escape run release --skip-build --skip-deploy --skip-if-exists --plan escape-nodejs.yml
+          escape run release --skip-build --skip-deploy --skip-if-exists --plan escape-godog-chromium.yml
