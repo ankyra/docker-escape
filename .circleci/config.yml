@@ -21,4 +21,4 @@ jobs:
         name: Build Escape release 
         command: | 
           escape run release --skip-destroy --skip-deploy --skip-if-exists
-          curl -f -X POST https://circleci.com/api/v1.1/project/github/ankyra/docker-escape-nodejs/tree/master?circle-token=${CIRCLE_DOCKER_NODEJS_TOKEN}
+          escape run release --skip-build --skip-deploy --skip-if-exists --plan escape-nodejs.yml

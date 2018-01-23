@@ -1,0 +1,38 @@
+name: docker-escape-nodejs
+logo: logo.png
+version: $escape.metadata.escape_version
+description: |
+    The Docker image for Escape with nodejs and npm installed.
+    Published at https://hub.docker.com/r/ankyra/escape-nodejs/
+
+depends:
+- release_id: docker-escape-latest as escape
+  mapping:
+    docker_image: escape
+    docker_repository: ankyra/
+    docker_image_version: $escape.version
+    docker_import_image: true
+
+metadata:
+  core_version: $escape.metadata.core_version
+  escape_version: $escape.version
+  release_metadata_api_version: $escape.metadata.release_metadata_api_version
+
+extends:
+- extension-docker-latest
+
+inputs:
+- id: docker_image
+  default: "escape-nodejs"
+  visible: false
+- id: docker_file
+  default: Dockerfile-nodejs
+
+templates:
+- file: Dockerfile-nodejs.tpl
+  mapping:
+    from_version: $escape.version
+
+includes:
+- Dockerfile-nodejs
+- imported_image

@@ -17,8 +17,6 @@ inputs:
 - id: docker_image
   default: "escape"
   visible: false
-- id: docker_repository
-  default: ""
 
 includes:
 - Dockerfile
