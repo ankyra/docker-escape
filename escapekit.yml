@@ -1,0 +1,19 @@
+escapekit_version: 1
+build:
+  steps:
+  - escape_plan_location: escape.yml
+    skip_deploy: true
+    skip_destroy: true
+    skip_if_exists: true
+  - escape_plan_location: escape-nodejs.yml
+    skip_tests: true
+    skip_deploy: true
+    skip_build: true
+    skip_destroy: true
+    skip_if_exists: true
+  - escape_plan_location: escape-godog-chromium.yml
+    skip_tests: true
+    skip_deploy: true
+    skip_build: true
+    skip_destroy: true
+    skip_if_exists: true
